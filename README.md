@@ -6,7 +6,7 @@ This is a simple Ansible framework to serve as a basis for building Docker image
 
 CentOS 7 is used for the Docker container, but this can be changed to a different Linux distro if desired. Amazon Linux 2 is used for the Staging instance on EC2.
 
-I created a very basic [Python webapp](https://github.com/mattbrock/simple_webapp) to use as an example for the deployment here, but you can replace that with your own webapp should you so wish.
+I created a very basic [Python webapp](https://github.com/mattbrock/simple-webapp) to use as an example for the deployment here, but you can replace that with your own webapp should you so wish.
 
 **N.B.** Until you've tested this and honed it to your needs, **run it in a completely separate environment for safety reasons**, otherwise there is potential here for accidental destruction of parts of existing environments. Create a separate VPC specifically for this, or even use an entirely separate AWS account.
 
@@ -28,7 +28,7 @@ These playbooks are run in the standard way, i.e:
 
 Note that Step 4 requires the addition of `-i etc/inventory.aws_ec2.yml` to use the dynamic inventory, and also the addition of `-e 'ansible_python_interpreter=/usr/bin/python3'` to ensure it uses Python 3 on the Staging instance.
 
-To deploy your own webapp instead of my [basic Python app](https://github.com/mattbrock/simple_webapp), you'll need to modify _[build\_local.yml](build\_local.yml)_ so it pulls your own app from your git repository, then you can edit the variables as needed in _etc/variables.yml_.
+To deploy your own webapp instead of my [basic Python app](https://github.com/mattbrock/simple-webapp), you'll need to modify _[build\_local.yml](build\_local.yml)_ so it pulls your own app from your git repository, then you can edit the variables as needed in _etc/variables.yml_.
 
 ## Playbooks for build/provisioning/deployment
 
